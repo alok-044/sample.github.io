@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    <script>
+        function showAfterNext() {
+            var name = document.getElementById('Name').value;
+            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('after-next-section').style.display = 'block';
+            document.getElementById('welcome-message').textContent = 'Welcome ' + (name ? name : '');
+        }
+
+        function showOptionSection(option) {
+            document.getElementById('after-next-section').style.display = 'none';
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('option-section-' + i).style.display = 'none';
+            }
+            document.getElementById('option-section-' + option).style.display = 'block';
+        }
+    </script>
+    </head>
+    <body>
+        <div id="form-section">
+            <form>
+                <label for="Name">Your NAME please</label>
+                <input type="text" id="Name" name="Name"><br>
+                <nav>
+                    <button type="button" onclick="showAfterNext()">NEXT</button>
+                </nav>
+            </form>
+        </div>
+        <div id="after-next-section" class="after-next-container" style="display:none;">
+            <h2 id="welcome-message">Welcome </h2>
+            <p>What would you like</p>
+            <div class="options">
+                <button type="button" class="option-btn" onclick="showOptionSection(1)"> A flower💐</button>
+                <button type="button" class="option-btn" onclick="showOptionSection(2)">A song😸</button>
+                <button type="button" class="option-btn" onclick="showOptionSection(3)">A Hug🫂</button>
+            </div>
+        </div>
+
+        <div id="option-section-1" class="after-next-container" style="display:none;">
+            <h2>So you like flowers!</h2>
+            <p>Here!</p>
+            <img src="https://howtodrawforkids.com/wp-content/uploads/2022/06/how-to-draw-a-cute-flower.jpg" alt="Flowers" style="max-width: 100%; border-radius: 1rem; box-shadow: 0 2px 12px rgba(108,52,131,0.12); margin-bottom: 1.5rem;">
+            <button type="button" class="back-link" onclick="goBackToOptions()">Go Back</button>
+        </div>
+        <div id="option-section-2" class="after-next-container" style="display:none;">
+            <h2>Nice choice</h2>
+            <p>I hope you like this!</p>
+                    <div style="width:100%; display:flex; justify-content:center; margin-bottom:1.5rem;">
+                        <video width="320" height="180" controls>
+                            <source src="MITRAZ - Akhiyaan (Official Music Video).mp4" type="video/mp4">
+                            
+                        </video>
+                    </div>
+            <button type="button" class="back-link" onclick="goBackToOptions()">Go Back</button>
+        </div>
+        <div id="option-section-3" class="after-next-container" style="display:none;">
+            <h2>Ohh! You want a HUG</h2>
+            <p>Here's a warm hug for you!</p>
+            <img src="https://i.pinimg.com/236x/10/c8/b3/10c8b39ccf5d2e11d169646cbfe9c054.jpg" alt="Hug" style="max-width: 100%; border-radius: 1rem; box-shadow: 0 2px 12px rgba(108,52,131,0.12); margin-bottom: 1.5rem;">
+            <button type="button" class="back-link" onclick="goBackToOptions()">Go Back</button>
+        </div>
+
+        <script>
+            function goBackToOptions() {
+                for (let i = 1; i <= 3; i++) {
+                    document.getElementById('option-section-' + i).style.display = 'none';
+                }
+                document.getElementById('after-next-section').style.display = 'block';
+            }
+        </script>
+        
+    </body>
+</html>
